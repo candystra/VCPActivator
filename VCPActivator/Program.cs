@@ -47,8 +47,8 @@ namespace VCPActivator
         {
 
             string ActivationCode = "X0C5555";
-            Console.WriteLine(" Using Key {0} ", ActivationCode);
-            System.Threading.Thread.Sleep(1000);
+            //Console.WriteLine(" Using Key {0} ", ActivationCode);
+            //System.Threading.Thread.Sleep(1000);
             string text = GetDriveSerialNumber();
             Console.WriteLine(" Retriving system configuration.");
             if (Operators.CompareString(text, "", false) == 0)
@@ -56,7 +56,7 @@ namespace VCPActivator
                 text = "GEN-" + Strings.UCase(RandomHDDSerial(15));
             }
             System.Threading.Thread.Sleep(2000);
-            Console.WriteLine(" Generating Activaation data.");
+            Console.WriteLine(" Generating Activation data.");
             SetValue("HKEY_CURRENT_USER\\Software\\Program4Pc\\Video Converter Pro\\", "Data", GetEncryptedString(ActivationCode + "," + text, "Can not read the file!"));
             System.Threading.Thread.Sleep(1500);
         }
